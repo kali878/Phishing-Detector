@@ -1,0 +1,8 @@
+# Inside detect_phishing(url):
+whitelist = ['google.com', 'facebook.com', 'microsoft.com', 'gmail.com', 'apple.com']
+from tldextract import extract
+domain_data = extract(url)
+registered_domain = f"{domain_data.domain}.{domain_data.suffix}"
+
+if registered_domain in whitelist:
+    return "SAFE (Whitelisted)", {}
