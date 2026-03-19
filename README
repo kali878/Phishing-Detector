@@ -30,16 +30,23 @@ A clean, multi-threaded **Tkinter-based interface** that provides real-time feed
 
 ```text
 Phishing-Detector/
-│
+├── data/                   # Configuration & Lists
+│    └── whitelist.txt       # Trusted Domains
+│    └── blacklist.txt       # malicious or phishing data
 ├── src/                    # Core Logic
 │   ├── __init__.py
 │   ├── detector.py         # Main Brain (API + Heuristics)
 │   ├── url_features.py     # URL Pattern Rules
 │   ├── content_features.py # HTML Scraper
 │   └── whois_check.py      # Domain Age Analysis
+├── tests 
+│       └──requirements.txt # Python Dependencies
+│       └──test_urls.py
+├── utils
+│       └──helpers.py
+│       └──logger.py
+├──.env
 ├──config.py
 ├── gui.py                  # Tkinter Graphical Interface
 ├── main.py                 # CLI Entry Point
-├── requirements.txt        # Python Dependencies
-└── data/                   # Configuration & Lists
-    └── whitelist.txt       # Trusted Domains
+
