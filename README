@@ -1,0 +1,45 @@
+# PhishingDetection: Real-Time Phishing Detection System
+
+**PhishingDetection** is a sophisticated, multi-layered security tool designed to detect phishing URLs using a combination of **Rule-Based Heuristics** and **Real-Time Threat Intelligence** via the VirusTotal API. 
+
+Developed in Python, this tool provides a Graphical User Interface (GUI) for easy interaction and deep-scan analysis of suspicious links.
+
+---
+
+## 🚀 Features
+
+### 1. Real-Time API Analysis
+Integrates with the **VirusTotal v3 API** to cross-reference URLs against 70+ global antivirus engines and blocklists. It performs a "forced rescan" to ensure the data is live and not just cached.
+
+### 2. Heuristic-Based Detection (Local Rules)
+If a URL is unknown to global databases, the local engine analyzes the following features:
+* **URL Structure:** Checks for IP addresses, excessive dots, '@' symbols, and long URLs.
+* **Domain Analysis:** Uses `whois` data to detect "newly registered" domains (common in phishing).
+* **Content Analysis:** Scans the HTML for hidden forms, iframe redirections, and disabled right-clicks.
+* **Obfuscation Detection:** Identifies URL shorteners and "typosquatting" (e.g., g00gle.com).
+
+### 3. Smart Whitelisting
+Prevents "False Positives" for major platforms like Google, ChatGPT, and YouTube by verifying the top-level domain before scanning.
+
+### 4. Desktop GUI
+A clean, multi-threaded **Tkinter-based interface** that provides real-time feedback with color-coded results (Safe, Suspicious, Phishing).
+
+---
+
+## 📂 Project Structure
+
+```text
+Phishing-Detector/
+│
+├── src/                    # Core Logic
+│   ├── __init__.py
+│   ├── detector.py         # Main Brain (API + Heuristics)
+│   ├── url_features.py     # URL Pattern Rules
+│   ├── content_features.py # HTML Scraper
+│   └── whois_check.py      # Domain Age Analysis
+├──config.py
+├── gui.py                  # Tkinter Graphical Interface
+├── main.py                 # CLI Entry Point
+├── requirements.txt        # Python Dependencies
+└── data/                   # Configuration & Lists
+    └── whitelist.txt       # Trusted Domains
