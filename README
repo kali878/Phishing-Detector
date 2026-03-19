@@ -1,34 +1,35 @@
-# PhishingDetection: Real-Time Phishing Detection System
+# 🔐 Phishing Detection System
 
-**PhishingDetection** is a sophisticated, multi-layered security tool designed to detect phishing URLs using a combination of **Rule-Based Heuristics** and **Real-Time Threat Intelligence** via the VirusTotal API. 
-
-Developed in Python, this tool provides a Graphical User Interface (GUI) for easy interaction and deep-scan analysis of suspicious links.
+A hybrid phishing detection system that combines **real-time threat intelligence**, **heuristic analysis**, and **modular architecture** to identify malicious URLs.
 
 ---
 
 ## 🚀 Features
 
-### 1. Real-Time API Analysis
-Integrates with the **VirusTotal v3 API** to cross-reference URLs against 70+ global antivirus engines and blocklists. It performs a "forced rescan" to ensure the data is live and not just cached.
-
-### 2. Heuristic-Based Detection (Local Rules)
-If a URL is unknown to global databases, the local engine analyzes the following features:
-* **URL Structure:** Checks for IP addresses, excessive dots, '@' symbols, and long URLs.
-* **Domain Analysis:** Uses `whois` data to detect "newly registered" domains (common in phishing).
-* **Content Analysis:** Scans the HTML for hidden forms, iframe redirections, and disabled right-clicks.
-* **Obfuscation Detection:** Identifies URL shorteners and "typosquatting" (e.g., g00gle.com).
-
-### 3. Smart Whitelisting
-Prevents "False Positives" for major platforms like Google, ChatGPT, and YouTube by verifying the top-level domain before scanning.
-
-### 4. Desktop GUI
-A clean, multi-threaded **Tkinter-based interface** that provides real-time feedback with color-coded results (Safe, Suspicious, Phishing).
+* 🔍 Real-time URL scanning using **VirusTotal API**
+* 🌐 Domain analysis using **WHOIS lookup**
+* 🧠 Rule-based phishing detection engine
+* 📊 Feature extraction (URL, domain, content-based)
+* ⚡ Hybrid detection (API + Heuristic)
+* 📁 Modular project structure (industry-level)
+* 📝 Logging system for scan history
 
 ---
 
-## 📂 Project Structure
+## 🧠 How It Works
 
-```text
+The system follows a multi-layer detection approach:
+
+1. **Whitelist Check**
+2. **Real-Time Threat Intelligence (VirusTotal)**
+3. **Feature Extraction**
+4. **Detection Engine (Rule-based scoring)**
+5. **Final Verdict (SAFE / SUSPICIOUS / PHISHING)**
+
+---
+
+## 🏗️ Project Structure
+
 Phishing-Detector/
 ├── data/                   # Configuration & Lists
 │    └── whitelist.txt       # Trusted Domains
@@ -49,4 +50,88 @@ Phishing-Detector/
 ├──config.py
 ├── gui.py                  # Tkinter Graphical Interface
 ├── main.py                 # CLI Entry Point
+│── README.md
 
+---
+
+## ⚙️ Installation
+
+1. Clone repo
+   git clone https://github.com/kali878/Phishing-Detector.git
+   cd Phishing-Detector
+
+2. Create virtual environment
+   python -m venv venv
+
+3. Activate
+   Windows: venv\Scripts\activate
+
+4. Install dependencies
+   pip install -r requirements.txt
+
+---
+
+## 🔐 API Setup
+
+Create `.env` file:
+
+VT_API_KEY=your_virustotal_api_key
+
+---
+
+## ▶️ Usage
+
+python main.py
+
+Example:
+Enter URL to scan: https://example.com
+
+---
+
+## 📊 Sample Output
+
+FINAL VERDICT: SUSPICIOUS
+
+FEATURE | STATUS
+Has Ip | [OK] CLEAN
+Is New Domain | [!] FLAGGED
+
+---
+
+## ⚡ Technologies Used
+
+* Python
+* Requests
+* tldextract
+* WHOIS
+* VirusTotal API
+* dotenv
+* Wireshark
+* Linux
+
+---
+
+## 🔥 Future Improvements
+
+* Machine Learning integration
+* Google Safe Browsing API
+* Streamlit Dashboard
+
+---
+
+## 📌 Disclaimer
+
+This tool is for educational purposes only.
+
+---
+
+## 👨‍💻 Author
+
+Anup Patel
+Cybersecurity Enthusiast
+
+---
+
+## ⭐ Support
+
+Give a ⭐ if you like this project!
